@@ -1,0 +1,107 @@
+{% load static%}
+{% load bootstrap %}
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-100>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/navbar-top-fixed.css' %}">
+    <!--     <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}"> -->
+</head>
+
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Brotheres</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse me-auto mb-2 mb-md-0" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container col-6">
+        <div class="bg-light p-5 rounded">
+            <h3>Formulário de cadastro</h3>
+            <p>Ao digitar o CEP, use somente números. Exemplo: 01001000</p>
+            <div class="d-grid gap-2 d-md-block"> <a type="button" class="btn btn-primary"> Visualizar cadastraddos </a>
+            </div>
+
+
+            <form class="formulario" name="form" id="form" method="POST" action="/create/">
+                {% csrf_token %}
+                <!--{{form.as_p}}-->
+                <div class="formulario mt-2">
+
+                    <div class="form-group mt-4 form-floating">
+                        <input class="form-control col-4" type="text" id="nome" value="{{ nome }}" placeholder="Nome ">
+                        <label for="/create/">Nome </label>
+                    </div>
+                    <div class="form-group mt-2 form-floating">
+                        <input class="form-control col-4" type="text" id="email" value="{{ email }}" placeholder="Email" required>
+                        <label for="/create/">Email: exemplo@gmail.com</label>
+                    </div>
+                    <div class="form-group mt-2 form-floating ">
+                        <input class="form-control col-4" type="text" id="cep" value="{{ cep }}" maxlength="8" placeholder="CEP" required>
+                        <label for="/create/">CEP</label>
+                    </div>
+
+                    <div class="form-group mt-2 form-floating">
+                        <input class="form-control" type="text" id="uf" value="{{ uf }}" placeholder="UF" required>
+                        <label for="/create/">Estado</label>
+                    </div>
+
+                    <div class="form-group mt-2 form-floating">
+                        <input class="form-control " type="text" name="cidade" id="localidade" value="{{ cidade }}" placeholder="Cidade"
+                            required>
+                        <label for="/create/">Cidade</label>
+                    </div>
+
+                    <div class="form-group mt-2 form-floating">
+                        <div class="input-group">
+                            <input type="text" class="form-control col-8" value="{{ logradouro }}" placeholder="Logragouro" id="logradouro" required>
+                            <input type="text" class="form-control col-4 " value="{{ numero }}" placeholder="Número" id="numero">
+                        </div>
+                    </div>
+
+                    <div class="form-grounp mt-2 form-floating">
+                        <input type="text" class="form-control " value="{{ numero }}" placeholder="Bairro" id="bairro" required>
+                        <label for="/create/">Bairro</label>
+                    </div>
+
+                    <div class="d-grid gap-2 mt-4 col-6 mx-auto">
+                        <input id="btn-salvar" type="submit" class="btn btn-success" value="Salvar">
+                    </div>
+            </form>
+        </div>
+    </main>
+
+    <script src=" {% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src=" {% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src=" {% static 'js/app.js' %}"></script>
+</body>
+
+</html>
