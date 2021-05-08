@@ -3,7 +3,7 @@ CRUD COM DJANGO
 
 ## requeriments
 asgiref==3.3.4
-certifi==2020.12.5        
+certifi==2020.12.5
 chardet==4.0.0
 Django==3.2.2
 django-bootstrap-form==3.4
