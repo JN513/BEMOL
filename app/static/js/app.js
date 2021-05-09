@@ -1,15 +1,15 @@
 'use strict';
 
-const limparformulario = (endereco) => {
+const limparformulario = () => {
     document.getElementById('uf').value = ''; 
-    document.getElementById('localidade').value = '';
+    document.getElementById('cidade').value = '';
     document.getElementById('bairro').value = '';
     document.getElementById('logradouro').value = '';
 }
 
 const preencherFormulario = (endereco) => {
     document.getElementById('uf').value = endereco.uf; 
-    document.getElementById('localidade').value = endereco.localidade;
+    document.getElementById('cidade').value = endereco.localidade;
     document.getElementById('bairro').value = endereco.bairro;
     document.getElementById('logradouro').value = endereco.logradouro;
 }
