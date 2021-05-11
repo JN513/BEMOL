@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Person
 from django.contrib import messages
 
@@ -48,24 +48,38 @@ def form(request):
             messages.error(request, "O campo bairro e obrigatorio")
             return redirect("form")
 
-        if Person.objects.all().filter(email=email.strip()).exists():
-            messages.error(request, "Email já utilizado")
-            return redirect("form")
+        if Person.objects.all().filter(email=email).exists():
+            person = Person.objects.all().filter(email=email).get()
+            person.update(nome, cep, uf, cidade, logradouro, numero, bairro)
 
-        person = Person(
-            nome=nome,
-            email=email,
-            cep=cep,
-            uf=uf,
-            cidade=cidade,
-            logradouro=logradouro,
-            numero=numero,
-            bairro=bairro,
-        )
+            messages.success(request, "Cadastro Editado com sucesso")
+        else:
+            person = Person(
+                nome=nome,
+                email=email,
+                cep=cep,
+                uf=uf,
+                cidade=cidade,
+                logradouro=logradouro,
+                numero=numero,
+                bairro=bairro,
+            )
 
-        person.save()
-
-        messages.success(request, "Cadastro Realizado com sucesso")
+            person.save()
+            messages.success(request, "Cadastro Realizado com sucesso")
         return redirect("cadastrados")
 
+    pk = request.GET.get("id")
+    if pk:
+        person = Person.objects.all().filter(id=int(pk)).get()
+        return render(request, "form.html", {"person": person})
+
     return render(request, "form.html")
+
+
+def delete_person(request, id):
+    person = get_object_or_404(Person, pk=id)
+
+    person.delete()
+
+    return redirect("cadastrados")
