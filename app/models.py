@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.fields import DateTimeField
 
 # Create your models here.
 class Person(models.Model):
@@ -11,6 +12,7 @@ class Person(models.Model):
     numero = models.IntegerField()
     bairro = models.CharField(max_length=150)
     created_in = models.DateTimeField(auto_now_add=True, blank=True)
+    update_in = models.DateTimeField(auto_now=True, blank=True)
 
     def __str__(self):
         return self.nome
