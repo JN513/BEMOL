@@ -23,38 +23,38 @@
             <div class="formulario mt-2">
 
                 <div class="form-group mt-4 form-floating">
-                    <input class="form-control col-4" type="text" id="nome" value="{{ nome }}" name="nome" placeholder="Nome ">
+                    <input class="form-control col-4" type="text" id="nome" value="{{ person.nome }}" name="nome" placeholder="Nome ">
                     <label for="nome">Nome </label>
                 </div>
                 <div class="form-group mt-2 form-floating">
-                    <input class="form-control col-4" type="text" id="email" value="{{ email }}" name="email" placeholder="Email" required>
+                    <input class="form-control col-4" type="text" id="email" value="{{ person.email }}" name="email" placeholder="Email" required>
                     <label for="email">Email: exemplo@gmail.com</label>
                 </div>
                 <div class="form-group mt-2 form-floating ">
-                    <input class="form-control col-4" type="text" id="cep" value="{{ cep }}"  name="cep"  maxlength="8" placeholder="CEP" required>
+                    <input class="form-control col-4" type="text" id="cep" value="{{ person.cep }}"  name="cep"  maxlength="8" placeholder="CEP" required>
                     <label for="uf">CEP</label>
                 </div>
 
                 <div class="form-group mt-2 form-floating">
-                    <input class="form-control" type="text" id="uf" value="{{ uf }}" placeholder="UF" name="uf" required>
+                    <input class="form-control" type="text" id="uf" value="{{ person.uf }}" placeholder="UF" name="uf" required>
                     <label for="uf">Estado</label>
                 </div>
 
                 <div class="form-group mt-2 form-floating">
-                    <input class="form-control " type="text" name="cidade" id="cidade" value="{{ cidade }}" placeholder="Cidade"
+                    <input class="form-control " type="text" name="cidade" id="cidade" value="{{ person.cidade }}" placeholder="Cidade"
                         required>
                     <label for="cidade">Cidade</label>
                 </div>
 
                 <div class="form-group mt-2 form-floating">
                     <div class="input-group">
-                        <input type="text" class="form-control col-8" value="{{ logradouro }}" placeholder="Logragouro" id="logradouro" name="logradouro" required>
-                        <input type="text" class="form-control col-4 " value="{{ numero }}" placeholder="Número" id="numero" name="numero" >
+                        <input type="text" class="form-control col-8" value="{{ person.logradouro }}" placeholder="Logragouro" id="logradouro" name="logradouro" required>
+                        <input type="text" class="form-control col-4 " value="{{ person.numero }}" placeholder="Número" id="numero" name="numero" >
                     </div>
                 </div>
 
                 <div class="form-grounp mt-2 form-floating">
-                    <input type="text" class="form-control " value="{{ numero }}" placeholder="Bairro" id="bairro" name ="bairro" required>
+                    <input type="text" class="form-control " value="{{ person.numero }}" placeholder="Bairro" id="bairro" name ="bairro" required>
                     <label for="bairro">Bairro</label>
                 </div>
 
