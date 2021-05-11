@@ -14,3 +14,14 @@ class Person(models.Model):
 
     def __str__(self):
         return self.nome
+
+    def update(self, nome, cep, uf, cidade, logradouro, numero, bairro):
+        self.nome = nome
+        self.cep = cep
+        self.uf = uf
+        self.cidade = cidade
+        self.logradouro = logradouro
+        self.numero = numero
+        self.bairro = bairro
+
+        self.save()
