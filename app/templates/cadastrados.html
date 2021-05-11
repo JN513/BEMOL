@@ -29,12 +29,13 @@
                         <th scope="col">Logradouro</th>
                         <th scope="col">Número</th>
                         <th scope="col">Bairro</th>
+                        <th scope="col">Deletar</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for person in persons %}
                     <tr>
-                        <th scope="row">{{person.id}}</th>
+                        <th scope="row"><a href="{% url 'form' %}?id={{person.id}}">{{person.id}}</a></th>
                         <td>{{person.nome}}</td>
                         <td>{{person.email}}</td>
                         <td>{{person.cep}}</td>
@@ -43,13 +44,12 @@
                         <td>{{person.logradouro}}</td>
                         <td>{{person.numero}}</td>
                         <td>{{person.bairro}}</td>
+                        <td><a href="{% url 'deletar' person.id %}">Deletar</a></td>
                     </tr>
                     {% endfor %}    
                 </tbody>
             </table>
         </div>
-
-        <!-- <a class="btn btn-lg btn-primary " href="../components/navbar/" role="button">View navbar docs &raquo;</a> -->
     </div>
 
 </main>
